@@ -1,0 +1,21 @@
+# MediaWiki with MariaDB
+version: '3'
+services:
+  mediawiki:
+    image: mediawiki
+    restart: always
+    env_file: .env
+    ports:
+      - 8080:80
+    volumes:
+      - ./volumes/mediawiki/images:/var/www/html/images
+      # After initial setup, download LocalSettings.php to the same directory as
+      # this yaml and uncomment the following line and use compose to restart
+      # the MediaWiki service
+      # - ./volumes/mediawiki/LocalSettings.php:/var/www/html/LocalSettings.php
+  db:
+    image: mariadb
+    restart: always
+    env_file: .env
+    volumes:
+      - ./volumes/mariadb:/var/lib/mysql

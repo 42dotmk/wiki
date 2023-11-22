@@ -1,0 +1,10 @@
+# User-specific .env
+.env
+
+# Volume data
+volumes/mediawiki/LocalSettings.php
+volumes/mediawiki/images
+volumes/mariadb/*
+!volumes/.keepme
+!volumes/images/.keepme
+!volumes/mariadb/.keepme
